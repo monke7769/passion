@@ -1,0 +1,18 @@
+title: Passion-Project
+description: "N@tm project. Hayden, Shuban, Tarun, Deva"
+owner_name: Hayden Chen
+github_username: monke7769
+github_repo: "csp-passionproject"
+baseurl: "/Passion-Project"
+remote_theme: jekyll/minima
+minima:
+  social_links:
+    - { platform: youtube, user_url: "https://youtube.com/@84115"}
+# remote_theme: pages-themes/dinky@v0.2.0
+# remote_theme: pages-themes/minimal@v0.2.0
+# remote_theme: pages-themes/hacker@v0.2.0
+# remote_theme: pages-themes/cayman@v0.2.0
+# remote_theme: pages-themes/time-machine@v0.2.0
+plugins:
+- jekyll-remote-theme
+future: true
