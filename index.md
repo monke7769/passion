@@ -2,17 +2,17 @@
 layout: home
 search_exclude: true
 ---
-The Passion Project
+## Passion
 - Hayden Chen
 - Shuban Pal
 - Tarun Jaikumar
 - Deva Sasikumar
 
 <div id="firstSection">
-    <h1>Click as much as you can before someone hits ctrl-R on you</h1>
+    <h2>Click as much as you can before someone hits ctrl-R on you</h2>
     <p id="firstText">Click the button!</p>
     <button id="button1">CLICK ME!!</button>
-    <p id="count">0</p>
+    <p id="count">0</p>.
 </div>
 
 <script>
