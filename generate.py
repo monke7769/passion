@@ -4,7 +4,7 @@ class generate:
     def __init__(self):
         global url
         url = "https://api.random.org/json-rpc/4/invoke"
-    def getrandom(amount):
+    def getrandom(self, amount):
         payload = json.dumps({
         "jsonrpc": "2.0",
         "method": "generateIntegers",
@@ -26,6 +26,8 @@ class generate:
         }
 
         response = requests.request("POST", url, headers=headers, data=payload)
-
-        print(response.text.result)
-        return response.text.result
+        readvalue=json.loads(response.text)
+        print(readvalue['result']['random']['data'])
+        
+        
+        return readvalue['result']['random']['data']

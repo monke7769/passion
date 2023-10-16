@@ -3,14 +3,16 @@
 <html>
 <head>
     Flask Button Example
+    <br> </br>
 </head>
 <body>
+    <input type="text" id="textInput" placeholder="Enter text...">
     <button id="submitButton">Submit Text</button>
     <div id="result"></div>
 
     <script>
-        document.getElementById('Enter Text to Encrypt').addEventListener('click', function() {
-            var text = "Example text to submit";  // You can replace this with the actual text you want to submit
+        document.getElementById('submitButton').addEventListener('click', function() {
+            var text = document.getElementById('textInput').value;  // Get the text from the textbox
 
             // Send a POST request to the Flask endpoint
             fetch('/submit', {
@@ -22,7 +24,11 @@
             })
             .then(response => response.json())
             .then(data => {
-                document.getElementById('result').innerText = data.message;
+                // Update the result div with the encrypted text
+                document.getElementById('result').innerText = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
             });
         });
     </script>

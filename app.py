@@ -1,9 +1,9 @@
 from flask import Flask, render_template, request, jsonify
 import subprocess
 import os
-import caesar as c1 # first cipher
-import substitution as c2 # second cipher
-import generate
+from caesar import caesar as c1 # first cipher
+from substitution import substitution as c2 # second cipher
+from generate import generate as gn
 app = Flask(__name__)
 
 @app.route("/")
@@ -14,12 +14,14 @@ def index():
 @app.route("/submit", methods=["POST"])
 def submit():
     text = request.json.get("text")
-    gen=generate()
-    value=gen.getrandom(1)
-    mycipher = c1(3,text)
-    print(mycipher)
-    response = {"message": f"You submitted the text: {text}"}
-    return jsonify(response)
+    print(text)
+    gen=gn()
+    value=gen.getrandom(1)[0]
+    cipher1=c1(int(value),text)
+    encrypted = cipher1.encrypt()
+    print(encrypted)
+    
+    return jsonify("Encrypted Values: "+str(encrypted))
 
 if __name__ == "__main__":
      app.run(debug=True)
