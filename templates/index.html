@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    Flask Button Example
+</head>
+<body>
+    <button id="submitButton">Submit Text</button>
+    <div id="result"></div>
+
+    <script>
+        document.getElementById('Enter Text to Encrypt').addEventListener('click', function() {
+            var text = "Example text to submit";  // You can replace this with the actual text you want to submit
+
+            // Send a POST request to the Flask endpoint
+            fetch('/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: text })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('result').innerText = data.message;
+            });
+        });
+    </script>
+</body>
+</html>
