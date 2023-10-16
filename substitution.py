@@ -1,13 +1,18 @@
+# By: Shuban Pal
+# Algorithm: Substitution
+# Project: CSP Passion Project
+# Date: 2023
+
 class substitution:
   def __init__(self, key, text):
     self.key = key
     self.text = text
   def encrypt(enc):
-    alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    alphabet="ABCDEFGHIJKLMNOPQRSTUVWXYZ" # Alphabet for character positions
     ct=""
     for i in range(0,len(enc.text)):
       if enc.text[i] in alphabet:
-        for j in range(0,len(alphabet)):
+        for j in range(0,len(alphabet)): # Replace character with character at the same position but from the key alphabet
           if enc.text[i] == alphabet[j]:
             index = j
         newchar = enc.key[index]
@@ -31,5 +36,5 @@ class substitution:
       return pt
 
 
-mycipher = substitution("QWERTYUIOPASDFGHJKLZXCVBNM","ITSSG VGKSR")
+mycipher = substitution("QWERTYUIOPASDFGHJKLZXCVBNM","ITSSG VGKSR") # Test case: Given a key alphabet and ciphertext, decrypt the ciphertext.
 print(mycipher.decrypt())
