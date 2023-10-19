@@ -1,6 +1,3 @@
-<<<<<<< HEAD
- =rdh
-=======
 # By: Shuban Pal
 # Algorithm: Caesar
 # Project: CSP Passion Project
@@ -34,4 +31,4 @@ class caesar:
 
 mycipher = caesar(3,"Hello World") # Test case: Encrypt string "Hello World" with key of 3
 print(mycipher.encrypt())
->>>>>>> refs/remotes/origin/main
+
