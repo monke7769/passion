@@ -1,4 +1,5 @@
 class caesar:
+  global key
   def __init__(self, key, text):
     self.key = key
     self.text = text
