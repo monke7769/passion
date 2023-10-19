@@ -1,6 +1,7 @@
 import requests
 import json
 class generate:
+    
     def __init__(self):
         global url
         url = "https://api.random.org/json-rpc/4/invoke"

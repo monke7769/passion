@@ -4,6 +4,7 @@ import os
 from caesar import caesar as c1 # first cipher
 from substitution import substitution as c2 # second cipher
 from generate import generate as gn
+
 app = Flask(__name__)
 
 @app.route("/")
