@@ -31,3 +31,4 @@ class caesar:
 
 mycipher = caesar(3,"Hello World") # Test case: Encrypt string "Hello World" with key of 3
 print(mycipher.encrypt())
+
