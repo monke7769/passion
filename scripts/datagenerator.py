@@ -14,4 +14,12 @@ for i in range(len(df['Text'])):
         index+=1
     if(index>4):
         break
-print(ciphers)
+
+import csv
+
+new_row = [["leggings", 22.99, 483]]
+
+with open('product_sales.csv', 'a', newline='') as file:
+    
+    writer = csv.writer(file)
+    writer.writerows(new_row)
