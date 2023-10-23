@@ -8,8 +8,14 @@ search_exclude: true
 - Tarun Jaikumar
 - Deva Sasikumar
 
+<link rel="stylesheet" href="assets/style/css/style.css">
+
 <head>
     <title>Flask Button Example</title>
+    <style>
+   
+    </style>
+
 </head>
 <body>
     <button id="submitButton">Submit Text</button>
