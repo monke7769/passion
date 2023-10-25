@@ -45,7 +45,6 @@ search_exclude: true
 
 <body>
     <div class="passion">
-        ## Passion
         - Hayden Chen
         - Shuban Pal
         - Tarun Jaikumar
