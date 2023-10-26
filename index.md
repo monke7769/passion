@@ -91,3 +91,60 @@ search_exclude: true
 Just to demonstrate our knowledge of JS
 
 # Sections
+
+<html>
+<head>
+    <title>Dropdown Box Example</title>
+</head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cipher Selection</title>
+</head>
+<body>
+    <label for="ciphers">Select a cipher:</label>
+    <select id="ciphers">
+        <option value="caesar">Caesar Cipher</option>
+        <option value="RSA">RSA</option>
+        <option value="hexadecimal">Hexadecimal</option>
+        <option value="binary">Binary</option>
+        <option value="substitution">Substitution</option>
+    </select>
+
+    <p>Selected cipher: <span id="selectedCipher"></span></p>
+
+    <script>
+        const dropdown = document.getElementById("ciphers");
+        const selectedCipher = document.getElementById("selectedCipher");
+
+        dropdown.addEventListener("change", function() {
+            const selectedOption = dropdown.value;
+            selectedCipher.textContent = selectedOption;
+
+            // Depending on the selected option, interact with different backends
+            switch (selectedOption) {
+                case "caesar":
+                    // Code for caesar
+                    break;
+                case "RSA":
+                    // Code for RSA
+                    break;
+                case "hexadecimal":
+                    // Code for hexadecimal
+                    break;
+                case "binary":
+                    // Code for binary
+                    break;
+                case "substitution":
+                    // Code for substitution
+                    break;
+                default:
+                    // Handle any other cases or errors
+                    break;
+            }
+        });
+    </script>
+</body>
+</html>
