@@ -42,52 +42,54 @@ search_exclude: true
         }
     </style>
 </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Click Counter</title>
+    <style>
+        #firstSection {
+            text-align: center;
+            padding: 50px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            width: 400px;
+        }
+
+        #button1 {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+        }
+    </style>
+</head>
 
 <body>
-    <div class="passion">
-        - Hayden Chen
-        - Shuban Pal
-        - Tarun Jaikumar
-        - Deva Sasikumar
-    </div>
-    <button id="submitButton">Submit Text</button>
-    <div id="result"></div>
-    <script>
-        document.getElementById('submitButton').addEventListener('click', function() {
-            var text = "Example text to submit";  // You can replace this with the actual text you want to submit
-            // Send a POST request to the Flask endpoint
-            fetch('/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ text: text })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById('result').innerText = data.message;
-            });
-        });
-    </script>
+
     <div id="firstSection">
         <h2>Click as much as you can before someone hits ctrl-R on you</h2>
         <p id="firstText">Click the button!</p>
         <button id="button1">CLICK ME!!</button>
         <p id="count">0</p>
     </div>
+
     <script>
-        function clickedButton() {
-            var firstText = document.getElementById("firstText");
-            firstText.innerHTML = "Keep clicking it!";
-            var num = document.getElementById("count");
-            num.innerHTML = String(parseInt(num.innerHTML)+1);
-        }
-        var thebutton = document.getElementById("button1");
-        thebutton.onclick = clickedButton; // on click, call the above function
+        document.getElementById("button1").addEventListener("click", function() {
+            document.getElementById("firstText").innerHTML = "Keep clicking it!";
+            
+            var numElement = document.getElementById("count");
+            var currentCount = parseInt(numElement.innerHTML);
+            numElement.innerHTML = currentCount + 1;
+        });
     </script>
 
 </body>
-
 Just to demonstrate our knowledge of JS
 
 # Sections
