@@ -32,6 +32,8 @@ search_exclude: true
         }
         button:hover {
             background-color: #45a049;
+            transform: scale(1.1);
+            transition: transform 0.3s ease;
         }
         /* Styles for the #firstSection */
         #firstSection {
@@ -40,7 +42,19 @@ search_exclude: true
             border-radius: 4px;
             margin-bottom: 20px;
         }
+        @keyframes colorChange {
+            0% { color: black; }
+            50% { color: grey; }
+            100% { color: black; }
+        }
+
+        #firstText {
+            animation: colorChange 2s infinite;
+        }
+
     </style>
+
+
 </head>
 <head>
     <meta charset="UTF-8">
