@@ -112,7 +112,6 @@ Just to demonstrate our knowledge of JS
 <head>
     <title>Dropdown Box Example</title>
 </head>
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -142,7 +141,8 @@ Just to demonstrate our knowledge of JS
             // Depending on the selected option, interact with different backends
             switch (selectedOption) {
                 case "caesar":
-                    // Code for caesar
+
+
                     break;
                 case "RSA":
                     // Code for RSA
