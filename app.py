@@ -24,5 +24,23 @@ def submit():
     
     return jsonify("Encrypted Values: "+str(encrypted))
 
+@app.route("/submit2", methods=["POST"])
+def submit2():
+    import os
+    import sys
+
+    curr_dir = os.path.dirname(os.path.realpath(__file__))
+    sys.path.append(os.path.join(curr_dir,'..','passion-backend'))
+
+    import aiprediction
+    print("chekcpoint")
+    
+    text = request.json.get("text")
+    print(text)
+    prediction = aiprediction.aiprediction()
+    output=prediction.pred(text)
+    
+    return jsonify("Encrypted Values: "+str(output))
+
 if __name__ == "__main__":
      app.run(debug=True)

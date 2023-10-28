@@ -164,3 +164,28 @@ Just to demonstrate our knowledge of JS
     </script>
 </body>
 </html>
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/0.10.0/skulpt.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/0.10.0/skulpt-stdlib.js"></script>
+  </head>
+  <body>
+    <button onclick="runPythonCode()">Run Python Code</button>
+    <pre id="output"></pre>
+    <script>
+      function runPythonCode() {
+        var output = document.getElementById("output");
+        var prog = 'print("Hello from Python!")'; // Your Python code here
+        var myPromise = Sk.misceval.asyncToPromise(function() {
+          return Sk.importMainWithBody("<stdin>", false, prog, true);
+        });
+        myPromise.then(function(mod) {
+          console.log('Python code executed successfully.');
+        }, function(err) {
+          output.textContent = err.toString();
+        });
+      }
+    </script>
+  </body>
+</html>
