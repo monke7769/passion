@@ -201,7 +201,7 @@ Just to demonstrate our knowledge of JS
 <script>
         function sendData() {
             var inputText = document.getElementById('textInput').value;
-            fetch('http://localhost:8080', {
+            fetch('http://localhost:8080/submit', {
                 method: 'POST', // or 'GET'
                 headers: {
                     'Content-Type': 'application/json',
