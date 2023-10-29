@@ -98,6 +98,9 @@ search_exclude: true
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cipher Selection</title>
 </head>
+
+
+
 <body>
     <label for="ciphers">Select a cipher:</label>
     <select id="ciphers">
@@ -105,48 +108,151 @@ search_exclude: true
         <option value="RSA">RSA</option>
         <option value="hexadecimal">Hexadecimal</option>
         <option value="binary">Binary</option>
-        <option value="substitution">Substitution</option>
+        <!-- <option value="substitution">Substitution</option> -->
         <option value="morse">morse</option>
     </select>
-
-    <p>Selected cipher: <span id="selectedCipher"></span></p>
-
+    <input type="text" id="Encryptinput" placeholder="Type The Text You want to Encrypt">
+    <h3 id="encrypted"></h3>
+    <button onclick="Encrypt()">ENCRYPT</button>
+    <p>Selected cipher: <span id="selectedCipher"></span>
+    </p>
     <script>
-        const dropdown = document.getElementById("ciphers");
-        const selectedCipher = document.getElementById("selectedCipher");
-
-        dropdown.addEventListener("change", function() {
+        function Encrypt() {
+            console.log("Encrypt function called");
+            const dropdown = document.getElementById("ciphers");
+            const selectedCipher = document.getElementById("selectedCipher");
+            // Get the input text outside the switch statement
+            var inputText = document.getElementById('Encryptinput').value;
+            // Depending on the selected option, interact with different backends
             const selectedOption = dropdown.value;
             selectedCipher.textContent = selectedOption;
-
-            // Depending on the selected option, interact with different backends
             switch (selectedOption) {
-                case "caesar":
-
-
+                case "caesar": // Ceasar Encryption making connection to backend
+                    console.log("Encrypt caesar function called");
+                    fetch('http://localhost:8080/caesarencrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text: inputText }),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Success:', data);
+                        var txt = document.getElementById("encrypted");
+                        txt.innerText = JSON.parse(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                     break;
-                case "RSA":
-                    // Code for RSA
+                case "RSA": // RSA Encryption making connection to backend
+                    console.log("Encrypt RSA function called");
+                    fetch('http://localhost:8080/rsaencrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text: inputText }),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Success:', data);
+                        var txt = document.getElementById("encrypted");
+                        txt.innerText = JSON.parse(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                     break;
-                case "hexadecimal":
-                    // Code for hexadecimal
+                case "hexadecimal": // Hexadecimal Encryption making connection to backend
+                    console.log("Encrypt RSA function called");
+                    fetch('http://localhost:8080/hexencrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text: inputText }),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Success:', data);
+                        var txt = document.getElementById("encrypted");
+                        txt.innerText = JSON.parse(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                     break;
-                case "binary":
-                    // Code for binary
+                case "binary": // Binary Encryption making connection to backend
+                    console.log("Encrypt RSA function called");
+                    fetch('http://localhost:8080/binaryencrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text: inputText }),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Success:', data);
+                        var txt = document.getElementById("encrypted");
+                        txt.innerText =JSON.parse(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                     break;
                 case "substitution":
-                    // Code for substitution
+                    console.log("Encrypt RSA function called");
+                    fetch('http://localhost:8080/subencrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text: inputText }),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Success:', data);
+                        var txt = document.getElementById("encrypted");
+                        txt.innerText = JSON.parse(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
+                    break;
+                case "morse":
+                    console.log("Encrypt RSA function called");
+                    fetch('http://localhost:8080/morseencrypt', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({ text: inputText }),
+                    })
+                    .then(response => response.text())
+                    .then(data => {
+                        console.log('Success:', data);
+                        var txt = document.getElementById("encrypted");
+                        txt.innerText = JSON.parse(data);
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                    });
                     break;
                 default:
                     // Handle any other cases or errors
                     break;
             }
-        });
+        }
     </script>
 </body>
-</html>
 
 
+
+
+</html> 
 
 
  <!-- Testing out the Ceasar Cipher connection to the backend -->
@@ -168,17 +274,21 @@ search_exclude: true
             'Content-Type': 'application/json',
         },
         body: JSON.stringify({text: inputText}),
-    })
+        })
     .then(response => response.text())
     .then(data => {
         console.log('Success:', data);
         var txt = document.getElementById("caesar")
         txt.innerText = data;
-    })
+        })
     .catch(error => {
         console.error('Error:', error);
-    });
-}
-    </script>
+        });
+    }
+</script>
+
+
+
+
 </body>
 </html>
