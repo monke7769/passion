@@ -84,27 +84,7 @@ search_exclude: true
     </style>
 </head>
 
-<body>
 
-    <div id="firstSection">
-        <h2>Click as much as you can before someone hits ctrl-R on you</h2>
-        <p id="firstText">Click the button!</p>
-        <button id="button1">CLICK ME!!</button>
-        <p id="count">0</p>
-    </div>
-
-    <script>
-        document.getElementById("button1").addEventListener("click", function() {
-            document.getElementById("firstText").innerHTML = "Keep clicking it!";
-            
-            var numElement = document.getElementById("count");
-            var currentCount = parseInt(numElement.innerHTML);
-            numElement.innerHTML = currentCount + 1;
-        });
-    </script>
-
-</body>
-Just to demonstrate our knowledge of JS
 
 # Sections
 
@@ -126,6 +106,7 @@ Just to demonstrate our knowledge of JS
         <option value="hexadecimal">Hexadecimal</option>
         <option value="binary">Binary</option>
         <option value="substitution">Substitution</option>
+        <option value="morse">morse</option>
     </select>
 
     <p>Selected cipher: <span id="selectedCipher"></span></p>
@@ -164,32 +145,11 @@ Just to demonstrate our knowledge of JS
     </script>
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/0.10.0/skulpt.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/skulpt/0.10.0/skulpt-stdlib.js"></script>
-  </head>
-  <body>
-    <button onclick="runPythonCode()">Run Python Code</button>
-    <pre id="output"></pre>
-    <script>
-      function runPythonCode() {
-        var output = document.getElementById("output");
-        var prog = 'print("Hello from Python!")'; // Your Python code here
-        var myPromise = Sk.misceval.asyncToPromise(function() {
-          return Sk.importMainWithBody("<stdin>", false, prog, true);
-        });
-        myPromise.then(function(mod) {
-          console.log('Python code executed successfully.');
-        }, function(err) {
-          output.textContent = err.toString();
-        });
-      }
-    </script>
-  </body>
-</html>
-<!DOCTYPE html>
+
+
+
+
+ <!-- Testing out the Ceasar Cipher connection to the backend -->
 <html>
 <head>
     <title>Send Data to Flask Backend</title>
