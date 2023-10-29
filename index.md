@@ -197,27 +197,28 @@ Just to demonstrate our knowledge of JS
 <body>
     <input type="text" id="textInput" placeholder="Enter text here">
     <button onclick="sendData()">Send Data</button>
+    <h3 id="caesar"></h3>
 
 <script>
-        function sendData() {
-            var inputText = document.getElementById('textInput').value;
-            fetch('http://localhost:8080/submit', {
-                method: 'POST', // or 'GET'
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({text: inputText}),
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Success:', data);
-                // Handle the response from the backend here
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                // Handle any errors here
-            });
-        }
+    function sendData() {
+    var inputText = document.getElementById('textInput').value;
+    fetch('http://localhost:8080/submit', {
+        method: 'POST', // or 'GET'
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({text: inputText}),
+    })
+    .then(response => response.text())
+    .then(data => {
+        console.log('Success:', data);
+        var txt = document.getElementById("caesar")
+        txt.innerText = data;
+    })
+    .catch(error => {
+        console.error('Error:', error);
+    });
+}
     </script>
 </body>
 </html>
