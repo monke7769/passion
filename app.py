@@ -24,6 +24,8 @@ def submit():
     
     return jsonify("Encrypted Values: "+str(encrypted))
 
+<<<<<<< HEAD
+=======
 @app.route("/submit2", methods=["POST"])
 def submit2():
     import os
@@ -41,6 +43,7 @@ def submit2():
     output=prediction.pred(text)
     
     return jsonify("Encrypted Values: "+str(output))
+>>>>>>> refs/remotes/origin/main
 
 if __name__ == "__main__":
      app.run(debug=True)
