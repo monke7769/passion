@@ -57,6 +57,7 @@
         <h1>Encrypt Here</h1>
         <input type="text" id="textInput" placeholder="Enter text...">
         <button id="submitButton">Submit Text</button>
+        <button onclick="runPythonCode()">Classifying Decryption</button>
         <div id="result"></div>
     </div>
 
@@ -81,6 +82,27 @@
                 console.error('Error:', error);
             });
         });
+
+        function runPythonCode() {
+            var text = document.getElementById('textInput').value;  // Get the text from the textbox
+
+            // Send a POST request to the Flask endpoint for classification
+            fetch('/submit2', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ text: text })
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update the result div with the encrypted text
+                document.getElementById('result').innerText = data;
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
     </script>
 </body>
 </html>
