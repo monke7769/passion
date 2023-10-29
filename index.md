@@ -189,3 +189,35 @@ Just to demonstrate our knowledge of JS
     </script>
   </body>
 </html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Send Data to Flask Backend</title>
+</head>
+<body>
+    <input type="text" id="textInput" placeholder="Enter text here">
+    <button onclick="sendData()">Send Data</button>
+
+<script>
+        function sendData() {
+            var inputText = document.getElementById('textInput').value;
+            fetch('http://localhost:8080', {
+                method: 'POST', // or 'GET'
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({text: inputText}),
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Success:', data);
+                // Handle the response from the backend here
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // Handle any errors here
+            });
+        }
+    </script>
+</body>
+</html>
