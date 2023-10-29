@@ -202,7 +202,7 @@ Just to demonstrate our knowledge of JS
 <script>
     function sendData() {
     var inputText = document.getElementById('textInput').value;
-    fetch('http://localhost:8080/submit', {
+    fetch('http://localhost:8080/caesarencrypt', {
         method: 'POST', // or 'GET'
         headers: {
             'Content-Type': 'application/json',
