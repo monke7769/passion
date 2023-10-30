@@ -51,10 +51,7 @@ search_exclude: true
         #firstText {
             animation: colorChange 2s infinite;
         }
-
     </style>
-
-
 </head>
 <head>
     <meta charset="UTF-8">
@@ -68,7 +65,6 @@ search_exclude: true
             margin: 20px auto;
             width: 400px;
         }
-
         #button1 {
             background-color: #4CAF50;
             color: white;
@@ -100,15 +96,16 @@ search_exclude: true
 </head>
 
 
-
+<!-- This is the Encryption Code -->
 <body>
-    <label for="ciphers">Select a cipher:</label>
+    <!-- This is the dropdown box with all the options -->
+    <label for="ciphers">Select a cipher:</label>   
     <select id="ciphers">
         <option value="caesar">Caesar Cipher</option>
         <option value="RSA">RSA</option>
         <option value="hexadecimal">Hexadecimal</option>
         <option value="binary">Binary</option>
-        <!-- <option value="substitution">Substitution</option> -->
+        <option value="substitution">Substitution</option>
         <option value="morse">morse</option>
     </select>
     <input type="text" id="Encryptinput" placeholder="Type The Text You want to Encrypt">
@@ -150,6 +147,7 @@ search_exclude: true
                     console.log("Encrypt RSA function called");
                     fetch('http://localhost:8080/rsaencrypt', {
                         method: 'POST',
+                        timeout: 1000000,
                         headers: {
                             'Content-Type': 'application/json',
                         },
@@ -258,17 +256,17 @@ search_exclude: true
  <!-- Testing out the Ceasar Cipher connection to the backend -->
 <html>
 <head>
-    <title>Send Data to Flask Backend</title>
+    <title>Classify the Cipher being used</title>
 </head>
 <body>
     <input type="text" id="textInput" placeholder="Enter text here">
-    <button onclick="sendData()">Send Data</button>
-    <h3 id="caesar"></h3>
+    <button onclick="sendData()">Decrypt</button>
+    <h3 id="Decryptor"></h3>
 
 <script>
     function sendData() {
     var inputText = document.getElementById('textInput').value;
-    fetch('http://localhost:8080/caesarencrypt', {
+    fetch('http://localhost:8080/decryption', {
         method: 'POST', // or 'GET'
         headers: {
             'Content-Type': 'application/json',
@@ -278,7 +276,7 @@ search_exclude: true
     .then(response => response.text())
     .then(data => {
         console.log('Success:', data);
-        var txt = document.getElementById("caesar")
+        var txt = document.getElementById("Decryptor")
         txt.innerText = data;
         })
     .catch(error => {
