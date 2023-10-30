@@ -230,7 +230,7 @@ window.onload = wrap_img;
         .then(data => {
             console.log('Success:', data);
             var txt = document.getElementById("decryptOutput")
-            txt.innerText = "Decrypted Output: "+data;
+            txt.innerText = "Decrypted Output: "+JSON.parse(data);
             })
         .catch(error => {
             console.error('Error:', error);
