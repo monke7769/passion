@@ -4,15 +4,15 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Passion-Project | N@tm project. Hayden, Shuban, Tarun, Deva</title>
+<title>Cryptosolutions123 | N@tm project. Hayden, Shuban, Tarun, Deva</title>
 <meta name="generator" content="Jekyll v3.9.3" />
-<meta property="og:title" content="Passion-Project" />
+<meta property="og:title" content="Cryptosolutions123" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="N@tm project. Hayden, Shuban, Tarun, Deva" />
 <meta property="og:description" content="N@tm project. Hayden, Shuban, Tarun, Deva" />
-<link rel="canonical" href="http://localhost:4100/Passion-Project/" />
+<link rel="canonical" href="http://localhost:4100/Cryptosolutions123/" />
 <meta property="og:url" content="http://localhost:4100/Passion-Project/" />
-<meta property="og:site_name" content="Passion-Project" />
+<meta property="og:site_name" content="Cryptosolutions123" />
 <meta property="og:type" content="website" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Passion-Project" />
@@ -119,6 +119,7 @@ window.onload = wrap_img;
             font-size: 16px;
             margin: 4px 2px;
             cursor: pointer;
+            box-shadow: 0 0 10px rgba(255, 100, 255, 0.87);
         }
 
         #home
@@ -129,9 +130,13 @@ window.onload = wrap_img;
 
         .cryptWrapper
         {
-            padding: 1%;
+            padding: 20%;
             height:auto;
-            gap:5%;
+            gap:30%;
+            text-shadow: 0 0 100px rgba(90, 70, 202, 0.87);
+            margin-right: 110px;
+            box-shadow: 0 0 10px rgba(116, 46, 255, 0.627);
+            width: 100%;
         }
 
         .cryptInput
@@ -140,6 +145,7 @@ window.onload = wrap_img;
             height:150px;
             text-align: start;
             resize: none;
+            box-shadow: 0 0 20px rgba(83, 39, 205, 0.87);
         }
 
         .cryptButton
@@ -147,7 +153,8 @@ window.onload = wrap_img;
             position: relative;
             left:25%;
             top:1%;
-            background-color: green !important;
+            background-color: rgb(0, 0, 0) !important;
+            box-shadow: 0 0 10px rgba(100, 255, 118, 0.87);
         }
 
         .cryptButton:active
@@ -160,12 +167,20 @@ window.onload = wrap_img;
             position: relative;
             top:6%;
             left:25%;
+            box-shadow: 0 0 10px rgba(100, 255, 118, 0.87);
         }
 
         #decryptOutput
         {
             position: relative;
             top:5.5%;
+            
+        }
+        #Ban
+        {
+            position:fixed;
+            left:0%;
+            top:15%;
         }
     </style>
 </head>
@@ -225,6 +240,7 @@ window.onload = wrap_img;
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({text: inputText}),
+            timeout: 30000,
             })
         .then(response => response.text())
         .then(data => {
@@ -269,6 +285,7 @@ window.onload = wrap_img;
                 console.log("Encrypt RSA function called");
                 fetch('http://localhost:8080/rsaencrypt', {
                     method: 'POST',
+                    timeout:100000000,
                     headers: {
                         'Content-Type': 'application/json',
                     },
