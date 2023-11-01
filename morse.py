@@ -5,8 +5,8 @@
 class morse:
   def __init__(self, text):
     self.text = text
-  def encrypt(enc):
-    dex = {
+  def encrypt(enc): # Declare dictionary with each character used in morse and its morse notation
+    dex = { 
       "A": ".-",
       "B": "-...",
       "C": "-.-.",
@@ -37,7 +37,7 @@ class morse:
     }
     ptparse = []
     ct = ""
-    for i in range(0,len(enc.text)):
+    for i in range(0,len(enc.text)): # Look up the representation and list accordingly (via dictionary)
       ptparse.append(enc.text[i].upper())
     for j in range(0,len(ptparse)):
       ct += dex[ptparse[j]]
@@ -45,7 +45,7 @@ class morse:
     return ct
       
 
-  def decrypt(dec):
+  def decrypt(dec): # Same algorithm as previous look up, but with variation
     inverted_dex = {
         '.-': 'A',
         '-...': 'B',
