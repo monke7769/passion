@@ -56,7 +56,7 @@ window.onload = wrap_img;
     <style>
         /* Styles for the body */
         body {
-            font-family: Arial, sans-serif;
+            font-family: Monospace, sans-serif;
             padding: 20px;
         }
         /* Styles for h2 elements */
@@ -153,7 +153,7 @@ window.onload = wrap_img;
             position: relative;
             left:25%;
             top:1%;
-            background-color: rgb(0, 0, 0) !important;
+            background-color: rgb(0, 100, 0) !important;
             box-shadow: 0 0 10px rgba(100, 255, 118, 0.87);
         }
 
@@ -186,6 +186,27 @@ window.onload = wrap_img;
         {
             box-shadow: 0 0 10px rgba(100, 255, 118, 0.87);
         }
+        .typewriter h1 {
+            overflow: hidden; /* Ensures the content is not revealed until the animation */
+            white-space: nowrap; /* Keeps the content on a single line */
+            margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+            letter-spacing: .15em; /* Adjust as needed */
+            animation: 
+              typing 3.5s steps(40, end),
+              blink-caret .75s step-end infinite;
+          }
+          
+          /* The typing effect */
+          @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+          }
+          
+          /* The typewriter cursor effect */
+          @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: orange; }
+          }
     </style>
 </head>
 
@@ -206,7 +227,7 @@ window.onload = wrap_img;
     <main class="page-content" aria-label="Content">
           <div class="wrapper">
             <div id="home">
-                <div class="cryptWrapper">
+                <div class="typewriter">
                     <h1>Encrypt</h1>
                     <br>
                     <textarea id="Encryptinput" class="cryptInput" placeholder="Type text to be encrypted"></textarea>
@@ -226,7 +247,7 @@ window.onload = wrap_img;
                         Encrypted Output:
                     </p>
                 </div>
-                <div class="cryptWrapper">
+                <div class="typewriter">
                     <h1>Decrypt</h1>
                     <br>
                     <textarea class="cryptInput" id="decryptInput" placeholder="Type text to be decrypted"></textarea>
