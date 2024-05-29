@@ -18,6 +18,7 @@ The ciphers included in this project:
  - Morse Code
  - RSA
 
+More features:
 - Search functionality: the learning modules are searchable via the search feature at /search.
 - Interactive module/wiki pages enabling users to test their knowledge of the ciphers with short quizzes at the end. Users are informed on the page via JavaScript whether they answered correctly or not
 - Encryption is done via .py files stored on the backed. The user can select which cipher they want to use to encrypt an input message, and a POST method is made to the appropraite
